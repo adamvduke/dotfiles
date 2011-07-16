@@ -1,0 +1,26 @@
+[user]
+	name = Adam Duke
+	email = adam.v.duke@gmail.com
+[alias]
+	co = checkout
+	fp = format-patch --stdout
+	unstage = reset HEAD
+	cloner = clone --recursive
+[core]
+	excludesfile = /Users/adamd/.gitignore	
+[color]
+	ui = auto
+[color "diff"]
+	meta = blue bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "branch"]
+	current = yellow reverse
+	local = yellow bold
+	remote = green bold
+	plain = red bold
+[color "status"]
+	added = yellow
+	changed = green bold
+	untracked = blue bold

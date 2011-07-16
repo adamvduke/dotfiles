@@ -1,0 +1,5 @@
+#Global .gitignore for OSX
+
+.DS_Store
+.ackrc
+*.swp
