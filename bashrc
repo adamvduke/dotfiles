@@ -19,9 +19,6 @@ export NODE_PATH=/usr/local/lib/node
 #add bin in user's home directory to the PATH
 export PATH=$PATH:~/bin
 
-#add glassfish's bin directory to the PATH
-export PATH=$PATH:~/Applications/glassfish3/bin
-
 #add appengine sdk's bin directory to the PATH
 export PATH=$PATH:~/.m2/repository/com/google/appengine/appengine-java-sdk/1.4.3/appengine-java-sdk-1.4.3/bin
 
