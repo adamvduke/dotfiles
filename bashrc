@@ -13,14 +13,14 @@ export MAVEN_OPTS="-Xmx512M -XX:MaxPermSize=128M"
 #add /usr/local/bin and /usr/local/sbin to the path before /usr/bin
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-#add NODE_PATH environment variable
-export NODE_PATH=/usr/local/lib/node
-
 #add bin in user's home directory to the PATH
 export PATH=$PATH:~/bin
 
-#add appengine sdk's bin directory to the PATH
-export PATH=$PATH:~/.m2/repository/com/google/appengine/appengine-java-sdk/1.4.3/appengine-java-sdk-1.4.3/bin
+#add NODE_PATH environment variable
+export NODE_PATH=/usr/local/lib/node_modules
+
+# add NODE_PATH to the PATH for node executables
+export PATH=$PATH:$NODE_PATH
 
 #alias section
 alias ls='ls -la'
