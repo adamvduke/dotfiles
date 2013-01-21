@@ -1,4 +1,4 @@
-# User created bashrc
+# User created .bashrc
 # Author Adam Duke
 
 #source .git-completion
