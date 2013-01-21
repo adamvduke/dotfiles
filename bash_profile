@@ -1,5 +1,6 @@
-# User created bash_profile
 # Author Adam Duke
 
-#source .git-completion
-source ~/.bashrc
+# if bashrc exists, source it
+if [ -f ~/.bashrc ]; then
+  source ~/.bashrc
+fi
