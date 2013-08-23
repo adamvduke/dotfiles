@@ -17,7 +17,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=$PATH:~/bin
 
 #add NODE_PATH environment variable
-export NODE_PATH=/usr/local/lib/node_modules
+export NODE_PATH=/usr/local/share/npm/bin
 
 # add NODE_PATH to the PATH for node executables
 export PATH=$PATH:$NODE_PATH
