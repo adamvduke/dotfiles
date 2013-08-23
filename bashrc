@@ -26,6 +26,7 @@ export PATH=$PATH:$NODE_PATH
 alias ls='ls -la'
 alias gs='clear && git status'
 alias spec='rspec'
+
 # Quick way to rebuild the Launch Services database and get rid
 # of duplicates in the Open With submenu.
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
@@ -35,5 +36,9 @@ HISTCONTROL=ignoreboth
 HISTFILESIZE=10000
 HISTSIZE=10000
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
 # adding rvm
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
