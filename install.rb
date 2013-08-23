@@ -12,7 +12,7 @@ def install(original_file)
   File.symlink(File.expand_path(DIRECTORY + original_file), dot_file)
 end
 
-%w[bash_profile bashrc gitconfig gitignore].each do |file|
+%w[ackrc bash_profile bashrc gitconfig gitignore].each do |file|
   install(file)
 end
 
