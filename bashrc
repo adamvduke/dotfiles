@@ -4,9 +4,6 @@
 #source .git-completion
 source ~/.git-completion.bash
 
-#set Textmate as the default EDITOR
-export EDITOR='mate -w'
-
 #set Maven environment variables
 export MAVEN_OPTS="-Xmx512M -XX:MaxPermSize=128M"
 
