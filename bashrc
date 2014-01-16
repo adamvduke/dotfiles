@@ -23,6 +23,7 @@ export PATH=$PATH:$NODE_PATH
 alias ls='ls -la'
 alias gs='clear && git status'
 alias spec='rspec'
+alias be='bundle exec'
 
 # Quick way to rebuild the Launch Services database and get rid
 # of duplicates in the Open With submenu.
