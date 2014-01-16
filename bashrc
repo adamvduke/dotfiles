@@ -1,8 +1,21 @@
 # User created .bashrc
 # Author Adam Duke
 
-#source .git-completion
-source ~/.git-completion.bash
+#mperham's git completion/colors
+git_completion=`brew --prefix git`/etc/bash_completion.d/git-completion.bash
+if [ -f $git_completion ] ; then source $git_completion; fi
+
+source `brew --prefix git`/etc/bash_completion.d/git-prompt.sh
+export GIT_PS1_SHOWCOLORHINTS='1'
+export GIT_PS1_SHOWDIRTYSTATE='1'
+export GIT_PS1_SHOWUPSTREAM='auto'
+export PROMPT_COMMAND='__git_ps1 "\[\e[0;35m\]\w\[\e[0m\]" "\\\$ "'
+
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+#unhide the ~/Library
+chflags nohidden ~/Library/
 
 #set Maven environment variables
 export MAVEN_OPTS="-Xmx512M -XX:MaxPermSize=128M"

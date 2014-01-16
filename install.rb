@@ -15,9 +15,3 @@ end
 %w[ackrc bash_profile bashrc gitconfig gitignore].each do |file|
   install(file)
 end
-
-if File.exists?("/usr/local/etc/bash_completion.d/git-completion.bash")
-  dot_file = File.expand_path("~/.git-completion.bash")
-  FileUtils.rm(dot_file) if File.exists?(dot_file)
-  File.symlink("/usr/local/etc/bash_completion.d/git-completion.bash", dot_file)
-end
