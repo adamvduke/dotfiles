@@ -52,6 +52,6 @@ HISTSIZE=10000
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# adding rvm
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+#rbenv
+eval "$(rbenv init -)"
 
