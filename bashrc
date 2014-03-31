@@ -14,6 +14,8 @@ export PROMPT_COMMAND='__git_ps1 "\[\e[0;35m\]\w\[\e[0m\]" "\\\$ "'
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+export EDITOR=vim
+
 #unhide the ~/Library
 chflags nohidden ~/Library/
 
