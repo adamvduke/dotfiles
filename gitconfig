@@ -7,7 +7,7 @@
 	unstage = reset HEAD
 	cloner = clone --recursive
 [core]
-	excludesfile = /Users/adamd/.gitignore	
+	excludesfile = ~/.gitignore
 [color]
 	ui = auto
 [color "diff"]
