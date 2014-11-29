@@ -44,6 +44,8 @@ alias be='bundle exec'
 # of duplicates in the Open With submenu.
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
+alias removeswpfiles='find ~/.vim -name "*.swp" -exec rm {} ";"'
+
 # history stuff
 HISTCONTROL=ignoreboth
 HISTFILESIZE=10000
