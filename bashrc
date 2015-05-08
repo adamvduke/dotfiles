@@ -35,7 +35,7 @@ export NODE_PATH=/usr/local/share/npm/bin
 export PATH=$PATH:$NODE_PATH
 
 #alias section
-alias ls='ls -la'
+alias ll='ls -lrthG'
 alias gs='clear && git status'
 alias spec='rspec'
 alias be='bundle exec'
