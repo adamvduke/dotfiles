@@ -51,8 +51,8 @@ alias removeswpfiles='find ~/.vim -name "*.swp" -exec rm {} ";"'
 
 # history stuff
 HISTCONTROL=ignoreboth
-HISTFILESIZE=10000
-HISTSIZE=10000
+HISTFILESIZE=100000
+HISTSIZE=100000
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
