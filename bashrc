@@ -19,11 +19,8 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 export EDITOR=vim
 
-#unhide the ~/Library
+#unhide ~/Library
 chflags nohidden ~/Library/
-
-#set Maven environment variables
-export MAVEN_OPTS="-Xmx512M -XX:MaxPermSize=128M"
 
 #add /usr/local/bin and /usr/local/sbin to the path before /usr/bin
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
@@ -38,7 +35,7 @@ export NODE_PATH=/usr/local/share/npm/bin
 export PATH=$PATH:$NODE_PATH
 
 #alias section
-alias ll='ls -lrthG'
+alias ll='ls -lrthGa'
 alias gs='clear && git status'
 alias spec='rspec'
 alias be='bundle exec'
@@ -60,3 +57,12 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #rbenv
 eval "$(rbenv init -)"
 
+#docker-machine
+eval_docker_machine_env() {
+  docker_running=$(which docker-machine && ps -ef | grep VirtualBox | grep -v grep && docker-machine ls | grep dev)
+  if [[ "$?" == "0" ]]
+  then
+    eval "$(docker-machine env dev)"
+  fi
+}
+eval_docker_machine_env
