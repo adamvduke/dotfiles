@@ -71,6 +71,21 @@ eval_docker_machine_env() {
 }
 eval_docker_machine_env
 
+#convenience functions for resetting docker state
+function remove_docker_containers() {
+  docker stop $(docker ps -qa)
+  docker rm $(docker ps -qa)
+}
+
+function remove_docker_images() {
+  docker rmi $(docker images -qa)
+}
+
+function scorch_docker() {
+  remove_docker_containers
+  remove_docker_images
+}
+
 # if fzf exists, then source it
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
