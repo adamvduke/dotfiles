@@ -67,5 +67,8 @@ eval_docker_machine_env() {
 }
 eval_docker_machine_env
 
+# if fzf exists, then source it
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 # if bashrc.local exists, then source it
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
