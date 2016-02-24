@@ -12,6 +12,6 @@ def install(original_file)
   File.symlink(File.expand_path(DIRECTORY + original_file), dot_file)
 end
 
-%w[ackrc bash_profile bashrc gemrc gitconfig gitignore tmux.conf].each do |file|
+%w[ackrc bash_profile bashrc bashrc.local gemrc gitconfig gitignore tmux.conf].each do |file|
   install(file)
 end

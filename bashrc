@@ -66,3 +66,6 @@ eval_docker_machine_env() {
   fi
 }
 eval_docker_machine_env
+
+# if bashrc.local exists, then source it
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local
