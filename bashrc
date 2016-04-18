@@ -51,9 +51,24 @@ alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/
 alias removeswpfiles='find ~/.vim -name "*.swp" -exec rm {} ";"'
 
 # history stuff
-HISTCONTROL=ignoreboth
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
+# Save multi-line commands as one command
+shopt -s cmdhist
+
+# Huge history. Doesn't appear to slow things down, so why not?
+HISTSIZE=500000
 HISTFILESIZE=100000
-HISTSIZE=100000
+
+# Avoid duplicate entries
+HISTCONTROL="erasedups:ignoreboth"
+
+# Don't record some commands
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
+
+# Useful timestamp format
+HISTTIMEFORMAT='%F %T '
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -62,13 +77,22 @@ export PATH="/usr/local/heroku/bin:$PATH"
 eval "$(rbenv init -)"
 
 #docker-machine
-eval_docker_machine_env() {
+function eval_docker_machine_env() {
   docker_running=$(which docker-machine && ps -ef | grep VirtualBox | grep -v grep && docker-machine ls | grep dev)
   if [[ "$?" == "0" ]]
   then
     eval "$(docker-machine env dev)"
   fi
 }
+
+function docker_machine_up() {
+  docker-machine start dev && eval_docker_machine_env
+}
+
+function docker_machine_down() {
+  docker-machine stop dev
+}
+
 eval_docker_machine_env
 
 #convenience functions for resetting docker state
