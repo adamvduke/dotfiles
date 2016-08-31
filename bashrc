@@ -77,25 +77,6 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #rbenv
 eval "$(rbenv init -)"
 
-#docker-machine
-function eval_docker_machine_env() {
-  docker_running=$(which docker-machine && ps -ef | grep VirtualBox | grep -v grep && docker-machine ls | grep dev)
-  if [[ "$?" == "0" ]]
-  then
-    eval "$(docker-machine env dev)"
-  fi
-}
-
-function docker_machine_up() {
-  docker-machine start dev && eval_docker_machine_env
-}
-
-function docker_machine_down() {
-  docker-machine stop dev
-}
-
-eval_docker_machine_env
-
 #convenience functions for resetting docker state
 function remove_docker_containers() {
   docker stop $(docker ps -qa)
