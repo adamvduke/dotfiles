@@ -39,6 +39,10 @@ export NODE_PATH=/usr/local/share/npm/bin
 # add NODE_PATH to the PATH for node executables
 export PATH=$PATH:$NODE_PATH
 
+# golang stuff
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 #alias section
 alias ll='ls -lrthGa'
 alias gs='clear && git status'
