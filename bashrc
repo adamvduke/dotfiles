@@ -19,6 +19,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 if type nvim &> /dev/null; then
   export EDITOR=nvim
+  alias vim='nvim'
 else
   export EDITOR=vim
 fi
