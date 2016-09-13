@@ -26,3 +26,5 @@
 	untracked = blue bold
 [push]
 	default = matching
+[diff]
+	compactionHeuristic = true
