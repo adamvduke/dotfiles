@@ -2,7 +2,7 @@
 # Author Adam Duke
 
 # set higher file limits
-ulimit -Sn 8192
+ulimit -Sn 10240
 
 #mperham's git completion/colors
 git_completion=`brew --prefix git`/etc/bash_completion.d/git-completion.bash
