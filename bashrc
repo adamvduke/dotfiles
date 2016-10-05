@@ -50,6 +50,12 @@ alias gbc='git branch -d `git branch --merged | grep -v master`'
 alias spec='rspec'
 alias be='bundle exec'
 
+giggleBytesFn() {
+  s3cmd du s3://$1 | cut -d ' ' -f1 | awk '{ gb = $1 / 1024 / 1024 / 1024 ; print gb "GB" }'
+}
+
+alias gigglebytes=giggleBytesFn
+
 # Quick way to rebuild the Launch Services database and get rid
 # of duplicates in the Open With submenu.
 alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
