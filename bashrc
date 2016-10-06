@@ -17,6 +17,12 @@ export PROMPT_COMMAND='__git_ps1 "\[\e[0;35m\]\w\[\e[0m\]" "\\\$ "'
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+if type hub &> /dev/null; then
+  alias git='hub'
+  hub_completion=`brew --prefix git`/etc/bash_completion.d/hub.bash_completion.sh
+  if [ -f $hub_completion ] ; then . $hub_completion; fi
+fi
+
 if type nvim &> /dev/null; then
   export EDITOR=nvim
   alias vim='nvim'
