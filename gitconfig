@@ -5,7 +5,7 @@
 	co = checkout
 	fp = format-patch --stdout
 	unstage = reset HEAD
-	cloner = clone --recursive
+	pr = pull-request --browse
 [core]
 	excludesfile = ~/.gitignore
 [color]
