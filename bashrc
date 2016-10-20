@@ -95,37 +95,49 @@ export PATH="/usr/local/heroku/bin:$PATH"
 eval "$(rbenv init -)"
 
 #docker-machine
-function eval_docker_machine_env() {
-  docker_running=$(which docker-machine && ps -ef | grep VirtualBox | grep -v grep && docker-machine ls | grep dev)
-  if [[ "$?" == "0" ]]
-  then
-    eval "$(docker-machine env dev)"
-  fi
+function dm() {
+  case $1 in
+    recreate)
+      docker-machine rm -y dev || true
+      docker-machine create --driver virtualbox --virtualbox-disk-size 40000 --virtualbox-memory 5120 --virtualbox-cpu-count 2 dev
+      ;;
+    eval)
+      running=$(which docker-machine &> /dev/null && ps -ef | grep VirtualBox | grep -v grep && docker-machine ls | grep dev)
+      if [[ "$?" == "0" ]]
+      then
+        dm_env=$(docker-machine env dev)
+        eval $dm_env
+        echo $dm_env
+      fi
+      ;;
+    up)
+      docker-machine start dev && dm eval
+      ;;
+    down)
+      docker-machine stop dev
+      ;;
+    *)
+      echo $"Usage: dm {up|down|recreate|eval}"
+  esac
 }
 
-function docker_machine_up() {
-  docker-machine start dev && eval_docker_machine_env
-}
-
-function docker_machine_down() {
-  docker-machine stop dev
-}
-
-eval_docker_machine_env
-
-#convenience functions for resetting docker state
-function remove_docker_containers() {
-  docker stop $(docker ps -qa)
-  docker rm $(docker ps -qa)
-}
-
-function remove_docker_images() {
-  docker rmi $(docker images -qa)
-}
-
-function scorch_docker() {
-  remove_docker_containers
-  remove_docker_images
+# docker convenience functions for resetting state
+function d() {
+  case $1 in
+    containers)
+      docker stop $(docker ps -qa)
+      docker rm $(docker ps -qa)
+      ;;
+    images)
+      docker rmi $(docker images -qa)
+      ;;
+    implode)
+      d containers
+      d images
+      ;;
+    *)
+      echo $"Usage: d {containers|images|implode}"
+  esac
 }
 
 # if fzf exists, then source it
