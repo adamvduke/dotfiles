@@ -170,6 +170,9 @@ function set-keychain-environment-variable () {
   security add-generic-password -U -a ${USER} -D "environment variable" -s "${1}" -w "${secret}"
 }
 
+export AWS_ACCESS_KEY_ID=$(keychain-environment-variable AWS_ACCESS_KEY_ID)
+export AWS_SECRET_ACCESS_KEY=$(keychain-environment-variable AWS_SECRET_ACCESS_KEY)
+
 # if fzf exists, then source it
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
