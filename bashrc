@@ -85,9 +85,6 @@ HISTCONTROL="erasedups:ignoreboth"
 # Don't record some commands
 export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 
-# Useful timestamp format
-HISTTIMEFORMAT='%F %T '
-
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
