@@ -140,6 +140,36 @@ function d() {
   esac
 }
 
+# https://gist.github.com/adamvduke/fe3067116edddda168e02155d9d9695f
+### Functions for setting and getting environment variables from the OSX keychain ###
+### Adapted from https://www.netmeister.org/blog/keychain-passwords.html ###
+# Use: keychain-environment-variable SECRET_ENV_VAR
+function keychain-environment-variable () {
+  value=$(security find-generic-password -w -a ${USER} -D "environment variable" -s "${1}" 2>/dev/null)
+  if [[ "$?" == "0" ]]
+  then
+    echo $value
+  else
+    echo "No value for $1" > /dev/stderr
+  fi
+}
+
+# Use: set-keychain-environment-variable SECRET_ENV_VAR
+#   provide: super_secret_key_abc123
+function set-keychain-environment-variable () {
+  [ -n "$1" ] || print "Missing environment variable name"
+
+  if [ "$0" == "-bash" ]; then
+    read -sp "Enter Value for ${1}: " secret
+  fi
+  if [ "$0" == "zsh" ]; then
+    read -s "?Enter Value for ${1}: " secret
+  fi
+
+  ( [ -n "$1" ] && [ -n "$secret" ] ) || return 1
+  security add-generic-password -U -a ${USER} -D "environment variable" -s "${1}" -w "${secret}"
+}
+
 # if fzf exists, then source it
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
