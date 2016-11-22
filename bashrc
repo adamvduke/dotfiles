@@ -94,7 +94,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 #rbenv
 eval "$(rbenv init -)"
 
-#docker-machine
+# docker-machine helper function
 function dm() {
   case $1 in
     recreate)
@@ -116,12 +116,15 @@ function dm() {
     down)
       docker-machine stop dev
       ;;
+    status)
+      docker-machine status dev
+      ;;
     *)
-      echo $"Usage: dm {up|down|recreate|eval}"
+      echo $"Usage: dm {up|down|recreate|eval|status}"
   esac
 }
 
-# docker convenience functions for resetting state
+# convenience function for resetting docker state
 function d() {
   case $1 in
     containers)
