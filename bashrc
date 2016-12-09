@@ -175,6 +175,10 @@ function set-keychain-environment-variable () {
 export AWS_ACCESS_KEY_ID=$(keychain-environment-variable AWS_ACCESS_KEY_ID)
 export AWS_SECRET_ACCESS_KEY=$(keychain-environment-variable AWS_SECRET_ACCESS_KEY)
 
+function disable_photos () {
+  defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES
+}
+
 # if fzf exists, then source it
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
