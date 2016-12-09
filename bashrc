@@ -157,12 +157,14 @@ function keychain-environment-variable () {
 # Use: set-keychain-environment-variable SECRET_ENV_VAR
 #   provide: super_secret_key_abc123
 function set-keychain-environment-variable () {
+  cur_shell=$(ps -p $$ | awk '$1 != "PID" {print $(NF)}')
+
   [ -n "$1" ] || print "Missing environment variable name"
 
-  if [ "$0" == "-bash" ]; then
+  if [ "$cur_shell" = "-bash" ]; then
     read -sp "Enter Value for ${1}: " secret
   fi
-  if [ "$0" == "zsh" ]; then
+  if [ "$cur_shell" = "zsh" ]; then
     read -s "?Enter Value for ${1}: " secret
   fi
 
