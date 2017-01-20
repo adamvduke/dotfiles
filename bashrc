@@ -73,7 +73,7 @@ export PATH=$PATH:$GOPATH/bin
 #alias section
 alias ll='ls -lrthGa'
 alias gs='clear && git status'
-alias gbc='git branch -d `git branch --merged | grep -v master`'
+alias gbc='git co master && git pull -p && git branch -d `git branch --merged | grep -v master`'
 alias spec='rspec'
 alias be='bundle exec'
 
