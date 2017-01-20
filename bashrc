@@ -23,7 +23,13 @@ if type brew &> /dev/null; then
 
   #source git prompt if it's there
   git_prompt=$git_prefix/etc/bash_completion.d/git-prompt.sh
-  if [ -f $git_prompt ] ; then source $git_prompt; fi
+  if [ -f $git_prompt ]; then
+    source $git_prompt
+    export GIT_PS1_SHOWCOLORHINTS='1'
+    export GIT_PS1_SHOWDIRTYSTATE='1'
+    export GIT_PS1_SHOWUPSTREAM='auto'
+    export PROMPT_COMMAND='__git_ps1 "\h \[\e[0;35m\]\w\[\e[0m\]" "\\\$ "'
+  fi
 
   #alias hub and source hub completion if it's there
   if type hub &> /dev/null; then
@@ -32,11 +38,6 @@ if type brew &> /dev/null; then
     if [ -f $hub_completion ] ; then . $hub_completion; fi
   fi
 fi
-
-export GIT_PS1_SHOWCOLORHINTS='1'
-export GIT_PS1_SHOWDIRTYSTATE='1'
-export GIT_PS1_SHOWUPSTREAM='auto'
-export PROMPT_COMMAND='__git_ps1 "\[\e[0;35m\]\w\[\e[0m\]" "\\\$ "'
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
