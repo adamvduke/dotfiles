@@ -1,6 +1,7 @@
 # User created .bashrc
 # Author Adam Duke
 
+UNAME=`uname`
 if [ "$UNAME" == "Darwin" ]; then
   # set higher file limits
   ulimit -Sn 10240
