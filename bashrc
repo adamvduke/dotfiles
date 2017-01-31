@@ -200,6 +200,7 @@ if type security &> /dev/null; then
 
   export AWS_ACCESS_KEY_ID=$(keychain-environment-variable AWS_ACCESS_KEY_ID)
   export AWS_SECRET_ACCESS_KEY=$(keychain-environment-variable AWS_SECRET_ACCESS_KEY)
+  export HOMEBREW_GITHUB_API_TOKEN=$(keychain-environment-variable HOMEBREW_GITHUB_API_TOKEN)
 fi
 
 # if fzf exists, then source it
